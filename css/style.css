@@ -36,3 +36,11 @@ h1 {
     display: inline-block;
     width: 80px;
 }
+
+input:invalid {
+    border: 5px solid red;
+}
+
+input {
+    background-color: #999999;
+}
