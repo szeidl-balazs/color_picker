@@ -11,7 +11,7 @@ function pageLoad() {
 	 	const bText = document.querySelector('#bText');
 
 	 	let rgbToHex = function (r, g, b) { 
-		let hexR = Number(r).toString(16);
+		let hexR = Number(r).toString(16);									/*hexadecimal conversion from type of number to string*/
 		let hexG = Number(g).toString(16);
 		let hexB = Number(b).toString(16);
 		
@@ -28,7 +28,7 @@ function pageLoad() {
 		}	
 		let hexVal = "#" + hexR + hexG + hexB;								/*store the hex components in hexVal*/
 		
-		_bodyId.style.backgroundColor = hexVal;								/*changes the background color*/
+		_bodyId.style.backgroundColor = hexVal;								/*changes the background color with HEX STRING value!!!*/
 		
 		return "Hex value: #" + hexR + hexG + hexB;						/*displays the hex value*/
 	}
@@ -38,7 +38,7 @@ function pageLoad() {
 	 	inputR.addEventListener('input', updateRValue);										/*listen the input field of rgb R value and if changes activate updateRValue function*/
 	 	function updateRValue(e) {			
 			rText.innerHTML = `Red: ${Number(e.target.value).toString(2)}`;	/*r value is taken from the eventlistener, updateRValue function accesses the <p> tag (rText) of rgb red value and updates*/
-		
+																																			
 			r = document.getElementById("red").value;
 			g = document.getElementById("green").value;
 			b = document.getElementById("blue").value;
@@ -48,7 +48,7 @@ function pageLoad() {
 		
 		inputG.addEventListener('input', updateGValue);
 		function updateGValue(e) {
-		gText.innerHTML = `Green: ${Number(e.target.value).toString(2)}`;
+		gText.innerHTML = `Green: ${Number(e.target.value).toString(2)}`;		/* binary conversion from type of number to string*/
 		r = document.getElementById("red").value;
 		g = document.getElementById("green").value;
 		b = document.getElementById("blue").value;
@@ -66,12 +66,10 @@ function pageLoad() {
 		}	
 
 		let tra;
-		_transp.addEventListener('input', updateTransp);
+		_transp.addEventListener('input', updateTransp);			/*watch the value change of transparency input*/
 		function updateTransp(e) {
-			tra = Number(e.target.value) / 100;
-			console.log(tra);
-			console.log(typeof tra);
-			_bodyId.style.opacity = tra;
+			tra = Number(e.target.value) / 100;									/*the function stores the input value in tra. 100 devision because opacity range is 0.0-1.0*/
+			bodyId.style.opacity = tra;													/*the body opacity receives the velue in type of number!!!*/
 		}
 		
 }
